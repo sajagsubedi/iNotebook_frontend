@@ -28,12 +28,9 @@ export default function NoteState(props) {
   };
 
   //function to add note
-  const addNote = (note) => {
-    let newNote = JSON.parse(JSON.stringify(note));
-    let newNotes = notes.note.concat(newNote);
-    setNotes({ ...notes, note: newNotes });
+  const addNote =async (note) => {
     showAlert("Added note sucessfully", "success");
-    fetch(`${host}/api/notes/addnote`, {
+   let response=await fetch(`${host}/api/notes/addnote`, {
       method: "POST",
       body: JSON.stringify(note),
       headers: {
@@ -41,6 +38,9 @@ export default function NoteState(props) {
         auth_token: localStorage.getItem("authToken"),
       },
     });
+    response=await response.json()
+    let newNotes = notes.note.concat(response.note);
+    setNotes({ ...notes, note: newNotes });
   };
 
   //Function to update Note
