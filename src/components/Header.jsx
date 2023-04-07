@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useContext } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import {NoteContext} from "../context/index"
 
 const Header = () => {
+const {setNotes}=useContext(NoteContext)
   const navigate = useNavigate();
   const offFunc = () => {
     const navigation = document.getElementById("navigation");
@@ -23,6 +25,8 @@ const Header = () => {
     localStorage.removeItem("authToken");
     offFunc();
     navigate("/login");
+    S
+setNotes({note:[]})
   };
   return (
     <header>
