@@ -25,8 +25,7 @@ const {setNotes}=useContext(NoteContext)
     localStorage.removeItem("authToken");
     offFunc();
     navigate("/login");
-    S
-setNotes({note:[]})
+    setNotes({note:[]})
   };
   return (
     <header>
