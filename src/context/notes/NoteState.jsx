@@ -83,6 +83,7 @@ export default function NoteState(props) {
     <NoteContext.Provider
       value={{
         notes,
+        setNotes,
         getNotes,
         addNote,
         updateNote,
