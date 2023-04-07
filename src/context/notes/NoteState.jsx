@@ -39,8 +39,8 @@ export default function NoteState(props) {
       },
     });
     response=await response.json()
-    let newNotes = notes.note.concat(response.note);
-    setNotes({ ...notes, note: newNotes });
+    let newNotes = notes.note.concat(response);
+    setNotes({...notes,note:newNotes});
   };
 
   //Function to update Note
